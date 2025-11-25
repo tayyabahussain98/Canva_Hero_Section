@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A New Era of Imagination</title>
+    <!-- Google Fonts Import: Poppins for a clean, modern look similar to Canva -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles & Gradient Background */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            /* Exact gradient from GEMINI.md: Purple (#A855F7) → Blue (#3B82F6) → Teal (#06B6D4) */
+            background-image: linear-gradient(to right, #A855F7, #3B82F6, #06B6D4);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+        }
+
+        /* Header Section Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem; /* Spacing adjusted to match screenshot visually */
+            background-color: rgba(0, 0, 0, 0.1); /* Slight overlay for contrast */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Logo Styling */
+        .logo {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.8rem; /* Adjusted font size */
+            font-weight: 800; /* Heavier font weight */
+            letter-spacing: -0.05em; /* Tighter letter spacing */
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+        .logo img {
+            height: 35px; /* Adjust logo height */
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* Navigation Links Styling */
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem; /* Spacing between nav items */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500; /* Medium font weight */
+            font-size: 1.05rem;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Authentication Buttons (Sign up & Log in) */
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-buttons .login-btn {
+            background-color: white; /* White background for Log in button */
+            color: #3B82F6; /* Blue text color */
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px; /* Pill-shaped */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+        .auth-buttons .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .auth-buttons .signup-btn {
+            /* Purple background for Sign up button */
+            background-color: #A855F7; 
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid white; /* White border */
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .auth-buttons .signup-btn:hover {
+            background-color: #9333ea; /* Slightly darker purple on hover */
+            border-color: #eee;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            flex-grow: 1; /* Allows hero section to fill remaining vertical space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem; /* Vertical padding, horizontal for responsiveness */
+        }
+
+        /* Main Heading Styling */
+        .hero-section h1 {
+            font-size: 5.5rem; /* Large, bold font size */
+            font-weight: 800; /* Extra bold */
+            margin: 0;
+            line-height: 1.1; /* Tighter line height */
+            max-width: 900px;
+            letter-spacing: -0.05em;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Pronounced shadow */
+        }
+
+        /* Subheading Styling */
+        .hero-section p {
+            font-size: 1.4rem; /* Larger subtext font size */
+            font-weight: 400; /* Regular weight */
+            max-width: 700px;
+            margin: 1.5rem 0 3rem 0; /* Spacing around subtext */
+            line-height: 1.5;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CTA Buttons Styling in Hero Section */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem; /* Space between buttons */
+            margin-top: 1rem;
+        }
+
+        .cta-buttons .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 9999px; /* Pill-shaped */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block; /* Ensure padding works correctly */
+            border: none; /* Remove default button border */
+            cursor: pointer;
+        }
+
+        .cta-buttons .btn.primary {
+            background-color: white; /* White background */
+            color: #3B82F6; /* Blue text */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow for primary */
+        }
+        .cta-buttons .btn.primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-buttons .btn.secondary {
+            /* Dark gradient background for secondary button, matching overall theme */
+            background-image: linear-gradient(to right, #A855F7, #3B82F6);
+            color: white;
+            border: 2px solid white; /* White border for contrast */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .cta-buttons .btn.secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Responsive Design Media Queries */
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+            .nav-buttons .login-btn,
+            .nav-buttons .signup-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .hero-section h1 {
+                font-size: 4.5rem;
+            }
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stack header items */
+                padding: 1.5rem;
+            }
+            .logo {
+                margin-bottom: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            .auth-buttons {
+                margin-top: 1rem;
+            }
+            .auth-buttons .login-btn,
+            .auth-buttons .signup-btn {
+                margin: 0 0.5rem;
+            }
+
+            .hero-section h1 {
+                font-size: 3.5rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .cta-buttons {
+                flex-direction: column; /* Stack buttons */
+                gap: 1rem;
+            }
+            .cta-buttons .btn {
+                width: 80%; /* Make buttons full width (with some margin) */
+                margin: 0 auto; /* Center buttons */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            nav ul li {
+                margin: 0.5rem 0.7rem;
+                font-size: 0.9rem;
+            }
+            .auth-buttons {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .auth-buttons .login-btn,
+            .auth-buttons .signup-btn {
+                width: 80%;
+                text-align: center;
+                margin: 0;
+            }
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section p {
+                font-size: 0.9rem;
+            }
+            .cta-buttons .btn {
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Logo (using text for now as no image URL is provided in the new GEMINI.md) -->
+        <!-- Based on previous interactions, I'll assume "Canva" as the text logo -->
+        <div class="logo">Canva</div>
+        
+        <!-- Navigation Links -->
+        <nav>
+            <ul>
+                <li><a href="#">Design</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Plans</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Authentication Buttons -->
+        <div class="auth-buttons">
+            <a href="#" class="login-btn">Log in</a>
+            <a href="#" class="signup-btn">Sign up</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <h1>A new era of imagination</h1>
+        <p>Discover a whole new world of skills and tools designed to put your imagination to work.</p>
+        <div class="cta-buttons">
+            <button class="btn primary">Start designing for free</button>
+            <button class="btn secondary">Explore our launches</button>
+        </div>
+    </main>
+</body>
+</html>
